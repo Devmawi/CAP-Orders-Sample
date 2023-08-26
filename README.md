@@ -78,3 +78,7 @@ Learn more at https://cap.cloud.sap/docs/get-started/.
 * https://developers.sap.com/tutorials/cp-cf-security-xsuaa-create.html#5587e65f-8b3b-4229-b0d0-b07c0b1d3fb4
 * https://developers.sap.com/tutorials/hana-cloud-cap-add-authentication.html#7a7f92ce-c320-4376-94bc-4f7b76fbf586
 * https://sap.github.io/cloud-sdk/docs/java/guides/cloud-foundry-xsuaa-service#client-credentials-grant
+
+## References
+
+* https://sap.github.io/cloud-sdk/docs/java/guides/cloud-foundry-xsuaa-service#client-credentials-grant
