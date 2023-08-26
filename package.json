@@ -1,0 +1,59 @@
+{
+  "name": "orderapp",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7.1.2",
+    "@sap/cds-hana": "^2",
+    "@sap/hana-client": "^2.17.22",
+    "@sap/xssec": "^3",
+    "@types/node": "^20.5.1",
+    "express": "^4",
+    "passport": "^0",
+    "typescript": "^5.1.6"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1.1.0",
+    "@sap/cds-dk": "^7",
+    "@sap/hdi-deploy": "4.8.0",
+    "@sap/ux-specification": "^1.108.12",
+    "rimraf": "^3.0.2",
+    "sqlite3": "^5.1.6"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-orders": "cds watch --open orders/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy OrderApp --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-project1": "cds watch --open project1/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "hana"
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana"
+        }
+      },
+      "[hybrid]": {
+        "db": {
+          "kind": "hana"
+        }
+      },
+      "auth": "jwt"
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  },
+  "sapux": [
+    "app/orders",
+    "app/project1"
+  ]
+}
